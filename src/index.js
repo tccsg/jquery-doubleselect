@@ -9,12 +9,13 @@ import HtmlDom from './js/template';
         constructor:DS,
         create:function(option){
             var dstemp=htmlsrc;
-            var bean=this.createNode(dstemp);
+            var bean=this.createNode(dstemp,option);
+            this.initSelectBoxList(bean,option);
             this.initEvent(bean,option);
         },
-        createNode:function(temp){
+        createNode:function(temp,option){
             var _tempNode=$(temp);
-            _tempNode.appendTo($('body'));
+            _tempNode.appendTo($(option.insertElement));   //插入位置
             return _tempNode;
         },
         initEvent:function(bean,option){
@@ -80,6 +81,14 @@ import HtmlDom from './js/template';
                 })
                 
             }	
+        },
+        initSelectBoxList:function(bean,option){
+            if(option.leftlist.length>0&&option.leftlist!=null){
+                for(var i=0;i<option.leftlist.length;i++){
+                    $('select[name="doublebox_helper1"]').append('<option value="'+i+'">'+option.leftlist[i]+'</option>')
+                    //console.log();
+                }
+            }
         }
     }
     $.ds=new DS();

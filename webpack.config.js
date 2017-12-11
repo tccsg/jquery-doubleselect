@@ -29,6 +29,8 @@ module.exports={
 		]
 	},
 	plugins:[
-		//new webpack.optimize.UglifyJsPlugin() //js压缩
+		new webpack.optimize.UglifyJsPlugin({
+			except: ['$super', '$', 'exports', 'require']
+		}) //js压缩
 	],
 }

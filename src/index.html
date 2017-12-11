@@ -13,7 +13,11 @@
 <body id="body">
     <!-- <p>i'm template page</p> -->
     <script>
-        $.ds.create({});
+        $.ds.create({
+            insertElement:'body',  //标签名字 类名  id名  p/.class/#id  要插入到那个元素里面
+            leftlist:['第一项','第二项','第三项','第四项'],   //左边选择框的数据 数组  ['第一项','第二项','第三项','第四项']
+            //rightlist:'',  //右侧数据
+        });
     </script>
 </body>
 </html>

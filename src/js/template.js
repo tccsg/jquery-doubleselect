@@ -3,14 +3,14 @@
  */
 
  const htmldom=function(){
-     let htmlsrc='';
+     var htmlsrc='';
      htmlsrc+='<div id="dsmodule" style="overflow: hidden;">';
 
      htmlsrc+='	<div id="packet_list" style="float: left;">';
      htmlsrc+='		<select multiple="multiple" name="doublebox_helper1" style="height: 160px;width: 138px;">'
-     htmlsrc+='			<option value="0">0：这是第0项</option>';
-     htmlsrc+='			<option value="1">1：这是第1项</option>';
-     htmlsrc+='			<option value="2">1：这是第2项</option>';
+    //  htmlsrc+='			<option value="0">0：这是第0项</option>';
+    //  htmlsrc+='			<option value="1">1：这是第1项</option>';
+    //  htmlsrc+='			<option value="2">1：这是第2项</option>';
      htmlsrc+='		</select>';
      htmlsrc+='	</div>';
 
@@ -27,8 +27,8 @@
 
      htmlsrc+='	<div id="selected_packet"style="float: left;">';
      htmlsrc+='		<select multiple="multiple" name="doublebox_helper2" style="height: 160px;width: 138px;">';
-     htmlsrc+='			<option value="3">3：这是第3项</option>';
-     htmlsrc+='			<option value="5">5：这是第5项</option>';
+    //  htmlsrc+='			<option value="3">3：这是第3项</option>';
+    //  htmlsrc+='			<option value="5">5：这是第5项</option>';
      htmlsrc+='		</select>';
      htmlsrc+='	</div>';
 
