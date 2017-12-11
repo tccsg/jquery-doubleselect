@@ -83,12 +83,17 @@ import HtmlDom from './js/template';
             }	
         },
         initSelectBoxList:function(bean,option){
-            if(option.leftlist.length>0&&option.leftlist!=null){
-                for(var i=0;i<option.leftlist.length;i++){
-                    $('select[name="doublebox_helper1"]').append('<option value="'+i+'">'+option.leftlist[i]+'</option>')
-                    //console.log();
+            if(option.leftlist!=null){
+                for(var key in option.leftlist){
+                    $('select[name="doublebox_helper1"]').append('<option value="'+key+'">'+option.leftlist[key]+'</option>')
                 }
             }
+            if(option.rightlist!=null){
+                for(var key in option.rightlist){
+                    $('select[name="doublebox_helper2"]').append('<option value="'+key+'">'+option.rightlist[key]+'</option>')
+                }
+            }
+            
         }
     }
     $.ds=new DS();
