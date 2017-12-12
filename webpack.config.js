@@ -1,5 +1,6 @@
 const path=require('path');
 const webpack=require('webpack');
+const HtmlWebpackPlugin=require('html-webpack-plugin');
 
 module.exports={
 	entry:{
@@ -7,7 +8,8 @@ module.exports={
 	},
 	output:{
 		path:path.resolve(__dirname,'./dist'),
-		filename:'[name].min.js'
+		filename:'[name].min.js',
+		//publicPath:'/dist/'
 	},
 	module:{
 		rules:[
@@ -28,9 +30,24 @@ module.exports={
 			}
 		]
 	},
+	// devServer:{
+	// 	contentBase:'./src',
+	// 	port:8080,
+	// 	hot:true,
+	// 	//inline:true,
+	// 	// plugins:[
+	// 	// 	new webpack.HotModuleReplacementPlugin(),
+	// 	// ]
+	// },
 	plugins:[
-		new webpack.optimize.UglifyJsPlugin({
-			except: ['$super', '$', 'exports', 'require']
-		}) //js压缩
+		// new HtmlWebpackPlugin({
+		// 	filename: 'index.html',
+		// 	template: 'src/index.html',
+		// 	inject: true
+		// }),
+		// new webpack.optimize.UglifyJsPlugin({
+		// 	except: ['$super', '$', 'exports', 'require']
+		// }), //js压缩
+		//new webpack.HotModuleReplacementPlugin(),
 	],
 }
