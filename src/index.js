@@ -2,6 +2,7 @@ import HtmlDom from './js/template';
 
 (function($){
 
+    
     const htmlsrc=HtmlDom();//生成html代码
     function DS(){}
 

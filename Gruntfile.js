@@ -25,7 +25,6 @@ module.exports=function(grunt){
             }
         },
         watch:{
-            
             livereload:{
                 options:{
                     livereload:'<%=connect.options.livereload%>'
@@ -36,16 +35,7 @@ module.exports=function(grunt){
         },
         webpack:{
             options:webpackConfig,
-            dev:{
-                // derServer:{
-                //     contentBase:'./src',
-                //     inline:true,
-                //     hot:true
-                // },
-                // plugins:webpackConfig.plugins.concat(
-                //     new HotModuleReplacementPlugin(),
-                // )
-            },
+            
             prod:{
                 plugins:webpackConfig.plugins.concat([
                     new HtmlWebpackPlugin({
@@ -63,21 +53,31 @@ module.exports=function(grunt){
         "webpack-dev-server":{
             options:{
                 webpack:webpackConfig,
+                open:true,
                 //publicPath:'/dist/',
             },
             start:{
+                //open:true,
+                webpack:{
+                    plugins:webpackConfig.plugins.concat(
+                        new HtmlWebpackPlugin({
+                            filename: 'index.html',
+                            template: 'src/index.html',
+                            inject: 'head'
+                        }),
+                    )
+                },
                 keepalive: true,
 				port:8086,
                 historyApiFallback: true,
                 noInfo: true,
-                inline:true,
+                //inline:true,
                 hot:true,
                 compress: true,
                 watchOptions: {
                     aggregateTimeout: 300,
                     poll: 1000
                 },
-                //open:true
             }
         }
     })
@@ -85,17 +85,23 @@ module.exports=function(grunt){
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
+
+    //grunt 的热更新
     grunt.registerTask('default',[
         'connect',
         'watch',
     ]);
 
+
     grunt.registerTask('server',['default']);
 
+    //最后构建项目
     grunt.registerTask('build',[
         'clean',
         'webpack:prod'
     ]);
 
+
+    //使用webpack-dev-server 热更新
     grunt.registerTask('dev',["webpack-dev-server:start"]);
 }

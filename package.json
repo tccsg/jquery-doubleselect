@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "wtest": "webpack",
-    "dev":"webpack-dev-server --open"
+    "dev": "webpack-dev-server --open"
   },
   "keywords": [
     "doubleselect"
@@ -30,5 +30,8 @@
     "time-grunt": "^1.4.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
