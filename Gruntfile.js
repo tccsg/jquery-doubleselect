@@ -40,7 +40,12 @@ module.exports=function(grunt){
                 plugins:webpackConfig.plugins.concat([
                     new HtmlWebpackPlugin({
                         template:path.resolve(__dirname,'./src/index.html'),
-                        inject:'head'
+                        inject:'head',
+                        minify: {
+                            removeComments: true,
+                            collapseWhitespace: true,
+                            removeAttributeQuotes: true
+                          },
                     }),
                     new webpack.optimize.UglifyJsPlugin({
                         except: ['$super', '$', 'exports', 'require']
@@ -71,7 +76,7 @@ module.exports=function(grunt){
 				port:8086,
                 historyApiFallback: true,
                 noInfo: true,
-                //inline:true,
+                inline:true,
                 hot:true,
                 compress: true,
                 watchOptions: {

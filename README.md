@@ -1,5 +1,5 @@
 # jquery-doubleselect
-基于jquery的双边选项插件
+基于jquery的双边选项插件 可自动对项目排序
 
 
 ##### 使用方法：
